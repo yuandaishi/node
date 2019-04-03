@@ -1,0 +1,10 @@
+//相当于exports是一个对象，然后我们给他增加各种值
+exports.hello=function(){//输出一个对象，对象的key是hello，value是对应的function
+    console.log('hello')
+}
+exports.sayName=function(){//输出一个对象，对象的key是sayName,value是对应的function
+    console.log('yuan')
+}
+module.exports=function(){//替换导出的exports对象，即导出的内容就是module.exports=的值
+    console.log('dai0');
+}
