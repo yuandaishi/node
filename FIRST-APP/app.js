@@ -1,6 +1,6 @@
 
 const EventEmitter=require('events');
-const emitter= new EventEmitter();
+const emitter= new EventEmitter();//new之后，生成了两个完全不相关的对象
 
 emitter.on('messageLogged',(arg)=>{//定义监听器
     console.log('messagelogged called',arg);
