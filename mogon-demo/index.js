@@ -11,7 +11,7 @@ const courseSchema =new mongoose.Schema({
     isPublished:Boolean
 })
 
-const Course = mongoose.model('Course',courseSchema);//返回一个类
+const Course = mongoose.model('aourse',courseSchema);//返回一个类，第一个参数是数据库的表的名称，不区分大小写
 
 async function createCourse() {
     const course = new Course({//实例化这个类
