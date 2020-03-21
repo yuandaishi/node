@@ -3,7 +3,7 @@ mongoose.connect('mongodb://localhost:27017/playground')//连接到相应的数�
 .then(() => console.log('connect...,连接数据库中'))
 .catch(() => console.error('can not connect'));
 
-const courseSchema =new mongoose.Schema({
+const courseSchema =new mongoose.Schema({//数据结构
     name: String,
     author: String,
     tags: [String],
@@ -11,18 +11,32 @@ const courseSchema =new mongoose.Schema({
     isPublished:Boolean
 })
 
-const Course = mongoose.model('aourse',courseSchema);//返回一个类，第一个参数是数据库的表的名称，不区分大小写
+const Course = mongoose.model('aourse',courseSchema);//返回一个类，第一个参数是数据库的表的名称，不区分大小写，有很多的增删改查方法
+//console.log(Course.find);
 
+// 增
 async function createCourse() {
     const course = new Course({//实例化这个类
         name: 'Node.js Course',
         author: 'yuands',
         tags: ['react', 'frontend'],
-        isPublished: true
+        isPublished: false
     })
     
     const result = await course.save();
     console.log(result);
 }
 
-createCourse();
+
+//查
+const getCourse  = async() => {
+    let result = await Course
+    .find({isPublished: true,author: 'yuands',})
+    .limit(10)
+    .sort({_id:-1})//1表示正向排序，-1表示负向。sort中的对象，按照key的先手顺序进行依次排序处理
+    .select({name:1,tags:1})//_id始终都会返回
+    console.log(result);
+}
+
+getCourse();
+//createCourse();
