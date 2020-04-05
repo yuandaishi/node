@@ -1,0 +1,16 @@
+[
+    {
+        "name": "yuands",
+        "age": "32",
+        "sex": "man",
+        "slary": "18000",
+        "lvoe": "code"
+    },
+    {
+        "name": "other",
+        "age": "100",
+        "sex": "unknow",
+        "slary": "unknow",
+        "lvoe": "code"
+    }
+]

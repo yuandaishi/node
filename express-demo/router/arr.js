@@ -50,7 +50,7 @@ router.post('/',(req, res) => {//post请求放在请求体中
     res.send(data);
 })
 //处理put请求
-router.put('/',(req, res) => {//post请求放在请求体中
+router.put('/',(req, res) => {
     const result = data.find(c => c.id === parseInt(req.params.id))
     if (!result) {//不设置这段代码的话，如果路径符合上述任何一个API地址的话，则返回的状态码是200,如果路径中没有符合的，则返回400
         res.status(404).send('找不到相应的内容')
