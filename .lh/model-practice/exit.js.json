@@ -1,0 +1,118 @@
+{
+    "sourceFile": "model-practice/exit.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 25,
+            "patches": [
+                {
+                    "date": 1650953685553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1650954103587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,4 @@\n-console.log('xxx');\n\\ No newline at end of file\n+console.log('xxx');\r\n+setInterval(() => {\r\n+    console.log('xxxxxxx')\r\n+}, 10000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954220633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n console.log('xxx');\r\n setInterval(() => {\r\n     console.log('xxxxxxx')\r\n-}, 10000);\n\\ No newline at end of file\n+}, 1000);\r\n+setTimeout(() => {\r\n+    process.exit()\r\n+}, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954314961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,8 @@\n setInterval(() => {\r\n     console.log('xxxxxxx')\r\n }, 1000);\r\n setTimeout(() => {\r\n+    // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n+    // 任何进行中的进程都会被终止\r\n     process.exit()\r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954551688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,8 @@\n }, 1000);\r\n setTimeout(() => {\r\n     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n     // 任何进行中的进程都会被终止\r\n-    process.exit()\r\n+    console.log(process.exitCode)\r\n+    process.exit();\r\n+    \r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954564070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n }, 1000);\r\n setTimeout(() => {\r\n     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n     // 任何进行中的进程都会被终止\r\n+    \r\n+    process.exit();\r\n     console.log(process.exitCode)\r\n-    process.exit();\r\n-    \r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954573901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,5 @@\n     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n     // 任何进行中的进程都会被终止\r\n     \r\n     process.exit();\r\n-    console.log(process.exitCode)\r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954873625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,6 @@\n }, 1000);\r\n setTimeout(() => {\r\n     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n     // 任何进行中的进程都会被终止\r\n-    \r\n-    process.exit();\r\n+    //process.exit();\r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954915879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,8 @@\n setTimeout(() => {\r\n     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n     // 任何进行中的进程都会被终止\r\n     //process.exit();\r\n+    process.on('SIGTERM',()=>{\r\n+        console.log('xxxxxxxxxxxxxxx')\r\n+    })\r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954929810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n }, 1000);\r\n setTimeout(() => {\r\n     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n     // 任何进行中的进程都会被终止\r\n-    //process.exit();\r\n+    process.exit();\r\n     process.on('SIGTERM',()=>{\r\n         console.log('xxxxxxxxxxxxxxx')\r\n     })\r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954937219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n }, 1000);\r\n setTimeout(() => {\r\n     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n     // 任何进行中的进程都会被终止\r\n-    process.exit();\r\n     process.on('SIGTERM',()=>{\r\n         console.log('xxxxxxxxxxxxxxx')\r\n     })\r\n+    process.exit();\r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650954976948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,6 @@\n     // 任何进行中的进程都会被终止\r\n     process.on('SIGTERM',()=>{\r\n         console.log('xxxxxxxxxxxxxxx')\r\n     })\r\n-    process.exit();\r\n+    process.kill(process.pid, 'SIGTERM')\r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650955098125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n console.log('xxx');\r\n setInterval(() => {\r\n     console.log('xxxxxxx')\r\n }, 1000);\r\n+process.on('SIGTERM',()=>{\r\n+    console.log('xxxxxxxxxxxxxxx')\r\n+})\r\n setTimeout(() => {\r\n     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n     // 任何进行中的进程都会被终止\r\n-    process.on('SIGTERM',()=>{\r\n-        console.log('xxxxxxxxxxxxxxx')\r\n-    })\r\n     process.kill(process.pid, 'SIGTERM')\r\n }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650956235186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n console.log('xxx');\r\n+console.log(JSON.stringify(process,'/t'))\r\n setInterval(() => {\r\n     console.log('xxxxxxx')\r\n }, 1000);\r\n process.on('SIGTERM',()=>{\r\n"
+                },
+                {
+                    "date": 1650956255438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n console.log('xxx');\r\n-console.log(JSON.stringify(process,'/t'))\r\n+console.log(JSON.stringify(process.env,'/t'))\r\n setInterval(() => {\r\n     console.log('xxxxxxx')\r\n }, 1000);\r\n process.on('SIGTERM',()=>{\r\n"
+                },
+                {
+                    "date": 1650956426607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n console.log('xxx');\r\n-console.log(JSON.stringify(process.env,'/t'))\r\n+console.log(JSON.stringify(process.env,null,'/t'))\r\n setInterval(() => {\r\n     console.log('xxxxxxx')\r\n }, 1000);\r\n process.on('SIGTERM',()=>{\r\n"
+                },
+                {
+                    "date": 1650956444217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n console.log('xxx');\r\n-console.log(JSON.stringify(process.env,null,'/t'))\r\n+console.log(JSON.stringify(process.env,null,'\\t'))\r\n setInterval(() => {\r\n     console.log('xxxxxxx')\r\n }, 1000);\r\n process.on('SIGTERM',()=>{\r\n"
+                },
+                {
+                    "date": 1650956554453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n console.log('xxx');\r\n-console.log(JSON.stringify(process.env,null,'\\t'))\r\n+console.log(JSON.stringify(process.env,null,'\\t'));\r\n+console.log(process.env.NODE_ENV)\r\n setInterval(() => {\r\n     console.log('xxxxxxx')\r\n }, 1000);\r\n process.on('SIGTERM',()=>{\r\n"
+                },
+                {
+                    "date": 1650957418556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n-console.log('xxx');\r\n-console.log(JSON.stringify(process.env,null,'\\t'));\r\n-console.log(process.env.NODE_ENV)\r\n-setInterval(() => {\r\n-    console.log('xxxxxxx')\r\n-}, 1000);\r\n-process.on('SIGTERM',()=>{\r\n-    console.log('xxxxxxxxxxxxxxx')\r\n-})\r\n-setTimeout(() => {\r\n-    // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n-    // 任何进行中的进程都会被终止\r\n-    process.kill(process.pid, 'SIGTERM')\r\n-}, 2000);\n\\ No newline at end of file\n+// console.log('xxx');\r\n+// console.log(JSON.stringify(process.env,null,'\\t'));\r\n+// console.log(process.env.NODE_ENV)\r\n+// setInterval(() => {\r\n+//     console.log('xxxxxxx')\r\n+// }, 1000);\r\n+// process.on('SIGTERM',()=>{\r\n+//     console.log('xxxxxxxxxxxxxxx')\r\n+// })\r\n+// setTimeout(() => {\r\n+//     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n+//     // 任何进行中的进程都会被终止\r\n+//     process.kill(process.pid, 'SIGTERM')\r\n+// }, 2000);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650957452083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,6 @@\n // setTimeout(() => {\r\n //     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n //     // 任何进行中的进程都会被终止\r\n //     process.kill(process.pid, 'SIGTERM')\r\n-// }, 2000);\n\\ No newline at end of file\n+// }, 2000);\r\n+console.log(process.argv)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650961184682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,14 @@\n //     // 这意味着任何待处理的回调、任何仍在发送的网络请求、任何文件系统访问、或者正在写入 stdout 或 stderr 的进程，所有这些都将立即被非正常地终止。\r\n //     // 任何进行中的进程都会被终止\r\n //     process.kill(process.pid, 'SIGTERM')\r\n // }, 2000);\r\n-console.log(process.argv)\n\\ No newline at end of file\n+//console.log(process.argv)\r\n+\r\n+const readline=require('readline').createInterface({\r\n+    input:process.stdin,\r\n+    output:process.stdout\r\n+})\r\n+\r\n+readline.question('你叫什么名字',name=>{\r\n+    console.log(`你好：${name}`)\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650961214840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,7 @@\n     input:process.stdin,\r\n     output:process.stdout\r\n })\r\n \r\n-readline.question('你叫什么名字',name=>{\r\n+readline.question('你叫什么名字：',name=>{\r\n     console.log(`你好：${name}`)\r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650961407729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,6 +19,11 @@\n     output:process.stdout\r\n })\r\n \r\n readline.question('你叫什么名字：',name=>{\r\n-    console.log(`你好：${name}`)\r\n+    // console.log(`你好：${name}`)\r\n+    readline.question('你的性别：',sex=>{\r\n+        readline.question('你的年龄：',age=>{\r\n+            \r\n+        })\r\n+    })\r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650961920870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,12 +18,20 @@\n     input:process.stdin,\r\n     output:process.stdout\r\n })\r\n \r\n+// readline.question('你叫什么名字：',name=>{\r\n+//     // console.log(`你好：${name}`)\r\n+//     readline.question('你的性别：',sex=>{\r\n+//         readline.question('你的年龄：',age=>{\r\n+\r\n+//         })\r\n+//     })\r\n+// })\r\n+\r\n readline.question('你叫什么名字：',name=>{\r\n-    // console.log(`你好：${name}`)\r\n-    readline.question('你的性别：',sex=>{\r\n-        readline.question('你的年龄：',age=>{\r\n-            \r\n-        })\r\n-    })\r\n+\r\n+})\r\n+\r\n+readline.question('你的性别',name=>{\r\n+    \r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1650961966481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,12 +26,11 @@\n \r\n //         })\r\n //     })\r\n // })\r\n-\r\n+let sex = readline.question('你的性别',sex=>{\r\n+    \r\n+})\r\n readline.question('你叫什么名字：',name=>{\r\n-\r\n+    sex()\r\n })\r\n\\ No newline at end of file\n \r\n-readline.question('你的性别',name=>{\r\n-    \r\n-})\n"
+                },
+                {
+                    "date": 1650961996645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,5 @@\n \r\n //         })\r\n //     })\r\n // })\r\n-let sex = readline.question('你的性别',sex=>{\r\n-    \r\n-})\r\n-readline.question('你叫什么名字：',name=>{\r\n-    sex()\r\n-})\r\n+\r\n"
+                }
+            ],
+            "date": 1650953685553,
+            "name": "Commit-0",
+            "content": "console.log('xxx');"
+        }
+    ]
+}
