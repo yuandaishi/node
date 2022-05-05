@@ -14,3 +14,7 @@ fs.open('./a,txt','a',(err,fd)=>{
         })
     }
 })
+fs.stat('./a,txt',(err,stats)=>{
+    if (err) return;
+    console.log(stats,stats.isFile());
+})
