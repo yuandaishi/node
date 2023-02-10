@@ -2,6 +2,8 @@ let i=0;
 let count=()=>{
     return i++;
 }
+count();
 module.exports = {
-    count:count
+    count:count,
+    i:i
 };
